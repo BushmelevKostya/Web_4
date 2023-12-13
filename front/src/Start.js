@@ -3,14 +3,12 @@ import LoginForm from "./components/LoginForm";
 
 function Start() {
     return (
-        <>
-            <Title/>
-            <LoginForm/>
-        </>
+        <div>
+            <Title />
+            <LoginForm />
+        </div>
     )
 }
-
-
 
 
 export default Start;

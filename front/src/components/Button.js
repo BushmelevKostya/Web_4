@@ -1,6 +1,8 @@
-function Button(type, value) {
+import SubmitClick from "./SubmitClick";
+
+function Button(type, value, event) {
     return (
-        <button type={type} value={value}></button>
+        <button type={type} value={value} onClick={event}></button>
     );
 }
 
