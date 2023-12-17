@@ -1,15 +1,9 @@
-import {useContext, useEffect, useRef} from "react";
+import React, {useEffect, useRef} from "react";
 
 import GraphPrinter from "./GraphPrinter";
-import {DotsFormContext} from "./TextInputContext";
 
 function Graph({ width, height }) {
-    const context = useContext(DotsFormContext);
     const canvasRef = useRef(null);
-
-    function getCoordinates(x, y, r) {
-        let formData = new FormData();
-    }
 
     useEffect(() => {
         if (!canvasRef?.current?.getContext("2d")) return;
