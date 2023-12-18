@@ -17,14 +17,13 @@ class Point : Serializable {
     private var x: Float
     private var y: Float
     private var r: Float
-    private var state: Boolean
+    private var state: Boolean = false
     private var owner : String
 
-    constructor(x: Float, y: Float, r: Float, state: Boolean, owner: String) {
+    constructor(x: Float, y: Float, r: Float, owner: String) {
         this.x = x
         this.y = y
         this.r = r
-        this.state = state
         this.owner = owner
     }
 }
