@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
 import org.springframework.web.server.ResponseStatusException
+import java.security.MessageDigest
+import java.util.*
 import kotlin.random.Random
 
 @Service
@@ -26,8 +28,31 @@ class AuthorizationService(@Value("\${PEPPER}") val pepper: String) {
         userRepository?.save(user)
     }
 
-    fun checkUser(authorization: String) {
+    fun checkUser(authorization: String) : String {
+        if (!authorization.startsWith("Basic")) {
+            throw ResponseStatusException(HttpStatus.BAD_REQUEST, "Bad authentication method")
+        }
+        var login: String
+        var password: String
+        try {
+            var base64 = authorization.substring(6)
+            val data: List<String> = String(Base64.getDecoder().decode(base64)).split(":", limit = 2)
+            if (data.size != 2) {
+                throw ResponseStatusException(HttpStatus.BAD_REQUEST, "Bad authentication data")
+            }
+            login = data[0]
+            password = data[1]
+        } catch (exception: IllegalArgumentException) {
+            throw ResponseStatusException(HttpStatus.BAD_REQUEST, "Bad base64")
+        }
 
+        val user: User? = userRepository?.findUserByLogin(login)
+
+        val finalPassword: String = pepper + password + user?.salt
+        if (!user?.password.equals(createHash(finalPassword))) {
+            throw ResponseStatusException(HttpStatus.UNAUTHORIZED, "Incorrect password")
+        }
+        return login
     }
 
     fun generateSalt() : String {
@@ -38,8 +63,13 @@ class AuthorizationService(@Value("\${PEPPER}") val pepper: String) {
     }
 
     fun createHash(password: String) : String {
-        if (!password.startsWith("Basic")) {
-            throw ResponseStatusException(HttpStatus.BAD_REQUEST, "Not valid authentication method")
+        val passwordBytes: ByteArray = password.toByteArray()
+        val messageDigest : MessageDigest = MessageDigest.getInstance("SHA-512")
+        val hashBytes : ByteArray = messageDigest.digest(passwordBytes)
+        val stringBuilder: StringBuilder = StringBuilder()
+        for (byte : Byte in hashBytes) {
+            stringBuilder.append(String.format("%02x", byte))
         }
+        return stringBuilder.toString()
     }
 }
