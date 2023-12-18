@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor
 @Entity
 @Data
 @NoArgsConstructor
-class User {
+class AppUser {
     @Id
     @GeneratedValue
     val id: Long? = null

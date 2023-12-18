@@ -24,8 +24,8 @@ class AuthorizationService(@Value("\${PEPPER}") val pepper: String) {
         }
         val salt: String = generateSalt()
         val securityPassword = pepper + password + salt
-        var user = User(login, createHash(securityPassword), salt)
-        userRepository?.save(user)
+        var appUser = AppUser(login, createHash(securityPassword), salt)
+        userRepository?.save(appUser)
     }
 
     fun checkUser(authorization: String) : String {
@@ -46,10 +46,10 @@ class AuthorizationService(@Value("\${PEPPER}") val pepper: String) {
             throw ResponseStatusException(HttpStatus.BAD_REQUEST, "Bad base64")
         }
 
-        val user: User? = userRepository?.findUserByLogin(login)
+        val appUser: AppUser? = userRepository?.findUserByLogin(login)
 
-        val finalPassword: String = pepper + password + user?.salt
-        if (!user?.password.equals(createHash(finalPassword))) {
+        val finalPassword: String = pepper + password + appUser?.salt
+        if (!appUser?.password.equals(createHash(finalPassword))) {
             throw ResponseStatusException(HttpStatus.UNAUTHORIZED, "Incorrect password")
         }
         return login
