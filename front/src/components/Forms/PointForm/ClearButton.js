@@ -1,13 +1,13 @@
-function ClearButton(type, value, props) {
+function ClearButton(props) {
     function clearPoints(event) {
         event.preventDefault();
         fetch("http://localhost:8080/request/points",{
             method: 'DELETE',
-            headers: {"Authorization": "Basic " + btoa(props.login + ":" + props.password)},
+            headers: {"Authorization": "Basic " + btoa(props.userProps.login + ":" + props.userProps.password)},
         })
             .then(response => {
                 if(response.ok){
-                    alert("ok")
+                    props.setR(props.r - 0.00001)
                 } else {
                     alert(response.status)
                 }
@@ -15,7 +15,7 @@ function ClearButton(type, value, props) {
     }
 
     return (
-        <button type={type} value={value} onClick={(event) => {clearPoints(event)}}>{value}</button>
+        <button type={props.type} value={props.value} onClick={(event) => {clearPoints(event)}}>{props.value}</button>
     );
 }
 

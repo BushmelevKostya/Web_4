@@ -12,7 +12,6 @@ function Main(props) {
     const {login, password} = props
     const navigate = useNavigate()
     useEffect(() => {
-        console.log(login)
         if (login === "" || password === "") navigate("/")
     }, [login, password]);
     return (
@@ -20,9 +19,9 @@ function Main(props) {
             <Title/>
             <div>
                 <PointForm x = {x} setX = {setX} y = {y} setY = {setY} r = {r} setR = {setR} userProps = {props}/>
-                {ClearButton("text", "Clear", props)}
+                <ClearButton type = "text" value = "Clear" r = {r} setR = {setR} userProps ={props}/>
             </div>
-            <Graph width = {500} height = {500} r = {r} userProps ={props}/>
+            <Graph width = {500} height = {500} r = {r} setR ={setR} userProps ={props}/>
         </>
     );
 }

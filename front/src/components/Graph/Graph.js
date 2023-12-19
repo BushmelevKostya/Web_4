@@ -31,12 +31,41 @@ function Graph( props ) {
             })
     }, [props.r]);
 
+    function createPoint(event) {
+        const R = props.r / 2;
+
+        const rect = canvasRef.current.getBoundingClientRect();
+        const offsetX = event.clientX - rect.left;
+        const offsetY = event.clientY - rect.top;
+
+        const x = (((offsetX - 250) / 80) * R);
+        const y = ((-(offsetY - 250) / 80) * R);
+
+        let formData = new FormData();
+        formData.append('x', parseFloat(x).toFixed(3));
+        formData.append('y', parseFloat(y).toFixed(3));
+        formData.append('r', parseFloat(props.r).toFixed(3));
+        fetch("http://localhost:8080/request/points",{
+            method: 'POST',
+            headers: {"Authorization": "Basic " + btoa(props.userProps.login + ":" + props.userProps.password)},
+            body: formData,
+        })
+            .then(response => {
+                if(response.ok){
+                    props.setR(props.r - 0.00001);
+                } else {
+                    alert(response.status);
+                }
+            })
+    }
+
     return (
         <canvas
             ref={canvasRef}
             width={props.width}
             height={props.height}
             key={props.r}
+            onClick={event => createPoint(event)}
         />
     );
 }
