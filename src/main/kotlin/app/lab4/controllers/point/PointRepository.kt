@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface PointRepository : JpaRepository<Point, Long> {
-    fun getPointByOwner(owner : String) : List<Point>
+    fun getPointByOwnerAndId(owner : String, id: Long) : Point
     fun deletePointsByOwner(owner : String)
+    fun getAllByOwner(owner: String) : List<Point>
 }

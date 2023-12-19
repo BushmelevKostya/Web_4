@@ -14,11 +14,11 @@ class Point : Serializable {
     @Id
     @GeneratedValue
     val id: Long? = null
-    private var x: Float
-    private var y: Float
-    private var r: Float
-    private var state: Boolean = false
-    private var owner : String
+    var x: Float = 0.0f
+    var y: Float = 0.0f
+    var r: Float = 0.0f
+    var state: Boolean = false
+    var owner : String = ""
 
     constructor(x: Float, y: Float, r: Float, owner: String) {
         this.x = x

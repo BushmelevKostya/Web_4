@@ -33,8 +33,9 @@ class PointController {
     }
     @GetMapping("/request/points")
     fun getPoints(@RequestHeader("Authorization") authorization: String) : List<Point>? {
-        return pointRepository?.getPointByOwner("")
+        return authorizationService?.checkUser(authorization)?.let { pointRepository?.getAllByOwner(it) }
     }
+
     @Transactional
     @DeleteMapping("request/points")
     fun deletePoints(@RequestHeader("Authorization") authorization: String) {
