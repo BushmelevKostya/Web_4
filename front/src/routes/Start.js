@@ -1,11 +1,14 @@
 import Title from "../components/Header/Title";
 import LoginForm from "../components/Forms/LoginForm/LoginForm";
+import {AuthProvider} from "../store/AuthContext";
 
 function Start() {
     return (
         <>
-            <Title />
-            <LoginForm />
+            <Title/>
+            <AuthProvider>
+                <LoginForm/>
+            </AuthProvider>
         </>
     )
 }

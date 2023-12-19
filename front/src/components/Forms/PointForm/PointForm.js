@@ -5,7 +5,7 @@ import RButtons from "./RButtons";
 import SubmitButton from "../SubmitButton";
 import {useState} from "react";
 
-function PointForm(props) {
+function PointForm() {
     const [x, setX] = useState("");
     const [y, setY] = useState("");
     const [r, setR] = useState("");
@@ -18,7 +18,7 @@ function PointForm(props) {
         formData.append('r', r);
         fetch("http://localhost:8080/request/points",{
             method: 'POST',
-            headers: {"Authorization": "Basic " + btoa(login + ":" + password)}
+            headers: {"Authorization": "Basic " + btoa("")}
         })
             .then(response => {
                 if(response.ok){
