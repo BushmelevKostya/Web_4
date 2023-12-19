@@ -2,7 +2,7 @@ import React, {useEffect, useRef} from "react";
 
 import GraphPrinter from "./GraphPrinter";
 
-function Graph( width, height, props ) {
+function Graph( props ) {
     const canvasRef = useRef(null);
 
     useEffect(() => {
@@ -15,7 +15,7 @@ function Graph( width, height, props ) {
 
         fetch("http://localhost:8080/request/points",{
             method: 'GET',
-            headers: {"Authorization": "Basic " + btoa(props.login + ":" + props.password)},
+            headers: {"Authorization": "Basic " + btoa(props.userProps.login + ":" + props.userProps.password)},
         })
             .then(response => {
                 if (response.ok) {
@@ -26,17 +26,17 @@ function Graph( width, height, props ) {
             })
             .then(data => {
                 data.map(point => {
-                    console.log(point.x);
+                    graphPrinter.drawPoint(point.x, point.y, point.r, point.state);
                 });
             })
-    }, []);
+    }, [props.r]);
 
     return (
         <canvas
             ref={canvasRef}
-            width={width}
-            height={height}
-            key={5}
+            width={props.width}
+            height={props.height}
+            key={props.r}
         />
     );
 }

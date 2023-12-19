@@ -3,9 +3,12 @@ import Graph from "../components/Graph/Graph";
 import PointForm from "../components/Forms/PointForm/PointForm";
 import ClearButton from "../components/Forms/PointForm/ClearButton";
 import {useNavigate} from "react-router-dom";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 
 function Main(props) {
+    const [x, setX] = useState("");
+    const [y, setY] = useState("");
+    const [r, setR] = useState("");
     const {login, password} = props
     const navigate = useNavigate()
     useEffect(() => {
@@ -16,10 +19,10 @@ function Main(props) {
         <>
             <Title/>
             <div>
-                {PointForm(props)}
+                <PointForm x = {x} setX = {setX} y = {y} setY = {setY} r = {r} setR = {setR} userProps = {props}/>
                 {ClearButton("text", "Clear", props)}
             </div>
-            {Graph (500, 500, props)}
+            <Graph width = {500} height = {500} r = {r} userProps ={props}/>
         </>
     );
 }

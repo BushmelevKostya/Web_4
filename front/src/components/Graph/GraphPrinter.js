@@ -12,10 +12,10 @@ class GraphPrinter {
     drawPicture() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-        let R1 = "5";
-        let R2 = "2.5";
-        let R3 = "-2.5";
-        let R4 = "-5";
+        let R1 = "2.5";
+        let R2 = "1.25";
+        let R3 = "-1.25";
+        let R4 = "-2.5";
 
         const center = 250
         const l = 32;

@@ -6,10 +6,6 @@ import SubmitButton from "../SubmitButton";
 import {useState} from "react";
 
 function PointForm(props) {
-    const [x, setX] = useState("");
-    const [y, setY] = useState("");
-    const [r, setR] = useState("");
-
     function handleSubmit(event, x, y, r) {
         event.preventDefault()
         let formData = new FormData();
@@ -18,7 +14,7 @@ function PointForm(props) {
         formData.append('r', parseFloat(r));
         fetch("http://localhost:8080/request/points",{
             method: 'POST',
-            headers: {"Authorization": "Basic " + btoa(props.login + ":" + props.password)},
+            headers: {"Authorization": "Basic " + btoa(props.userProps.login + ":" + props.userProps.password)},
             body: formData,
         })
             .then(response => {
@@ -31,10 +27,10 @@ function PointForm(props) {
     }
 
     return (
-        <Form onSubmit={event => handleSubmit(event, x, y, r)}>
-            <XButtons x = {x} setX = {setX}/>
-            Y:<TextInput type = "text" name = "y" placeholder = "Please enter y" y = {y} setY = {setY}/>
-            <RButtons r = {r} setR={setR}/>
+        <Form onSubmit={event => handleSubmit(event, props.x, props.y, props.r)}>
+            <XButtons x = {props.x} setX = {props.setX}/>
+            Y:<TextInput type = "text" name = "y" placeholder = "Please enter y" y = {props.y} setY = {props.setY}/>
+            <RButtons r = {props.r} setR={props.setR}/>
             {SubmitButton("Create point")}
         </Form>
     );
