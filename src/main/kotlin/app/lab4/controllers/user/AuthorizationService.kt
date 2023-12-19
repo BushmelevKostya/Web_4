@@ -1,6 +1,7 @@
 package app.lab4.controllers.user
 
 import lombok.AllArgsConstructor
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
@@ -13,6 +14,7 @@ import kotlin.random.Random
 @AllArgsConstructor
 class AuthorizationService(@Value("\${PEPPER}") val pepper: String) {
     val characters = """ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789<>?:@{!$}%^&*()_+?`~"""
+    @Autowired
     val userRepository: UserRepository? = null
 
     fun registerUser(login: String, password: String) {
@@ -25,6 +27,7 @@ class AuthorizationService(@Value("\${PEPPER}") val pepper: String) {
         val salt: String = generateSalt()
         val securityPassword = pepper + password + salt
         var appUser = AppUser(login, createHash(securityPassword), salt)
+        println(userRepository == null)
         userRepository?.save(appUser)
     }
 

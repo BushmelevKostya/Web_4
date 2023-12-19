@@ -4,5 +4,5 @@ import jakarta.validation.constraints.NotNull
 import org.springframework.data.jpa.repository.JpaRepository
 
 interface UserRepository : JpaRepository<AppUser, Long> {
-    fun findUserByLogin(@NotNull login: String) : AppUser
+    fun findUserByLogin(@NotNull login: String) : AppUser?
 }
