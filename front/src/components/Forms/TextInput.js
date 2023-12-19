@@ -1,20 +1,7 @@
-import {useState} from "react";
-
-function Input(type, name, placeholder) {
-    const [formData, setFormData] = useState({
-        login: '',
-        password: '',
-    });
-    const handleChange = (event) => {
-        setFormData({
-            ...formData,
-            [event.target.name]: event.target.value,
-        });
-    };
-
+function TextInput(props) {
     return (
-        <input name={name} type={type} placeholder={placeholder} onChange={handleChange}></input>
+        <input name={props.name} type={props.type} placeholder={props.placeholder} onChange={event => {props.setY(event.target.value)}}></input>
     );
 }
 
-export default Input;
+export default TextInput;

@@ -1,17 +1,15 @@
-import Button from "../Button";
-
-function XButtons() {
+function XButtons(props) {
     return (
         <div>X:
-            {Button("button", -2)}
-            {Button("button", -1.5)}
-            {Button("button", -1)}
-            {Button("button", -0.5)}
-            {Button("button", 0)}
-            {Button("button", 0.5)}
-            {Button("button", 1)}
-            {Button("button", 1.5)}
-            {Button("button", 2)}
+            <button type="button" onClick={() => props.setX(-2)} value="-2">-2</button>
+            <button type="button" onClick={() => props.setX(-1.5)} value="-1.5">-1.5</button>
+            <button type="button" onClick={() => props.setX(-1)} value="-1">-1</button>
+            <button type="button" onClick={() => props.setX(-0.5)} value="-0.5">-0.5</button>
+            <button type="button" onClick={() => props.setX(0)} value="0">0</button>
+            <button type="button" onClick={() => props.setX(0.5)} value="0.5">0.5</button>
+            <button type="button" onClick={() => props.setX(1)} value="1">1</button>
+            <button type="button" onClick={() => props.setX(1.5)} value="1.5">1.5</button>
+            <button type="button" onClick={() => props.setX(2)} value="2">2</button>
         </div>
     );
 }
