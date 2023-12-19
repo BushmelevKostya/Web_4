@@ -26,7 +26,7 @@ function Graph( props ) {
             })
             .then(data => {
                 data.map(point => {
-                    graphPrinter.drawPoint(point.x, point.y, point.r, point.state);
+                    graphPrinter.drawPoint(point.x, point.y, props.r, point.state);
                 });
             })
     }, [props.r]);

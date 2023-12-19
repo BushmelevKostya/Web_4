@@ -9,9 +9,9 @@ function PointForm(props) {
     function handleSubmit(event, x, y, r) {
         event.preventDefault()
         let formData = new FormData();
-        formData.append('x', parseFloat(x));
-        formData.append('y', parseFloat(y));
-        formData.append('r', parseFloat(r));
+        formData.append('x', parseFloat(x).toFixed(3));
+        formData.append('y', parseFloat(y).toFixed(3));
+        formData.append('r', parseFloat(r).toFixed(3));
         fetch("http://localhost:8080/request/points",{
             method: 'POST',
             headers: {"Authorization": "Basic " + btoa(props.userProps.login + ":" + props.userProps.password)},
@@ -19,9 +19,9 @@ function PointForm(props) {
         })
             .then(response => {
                 if(response.ok){
-                    alert("ok")
+                    props.setR(props.r - 0.00001);
                 } else {
-                    alert(response.status)
+                    alert(response.status);
                 }
             })
     }
