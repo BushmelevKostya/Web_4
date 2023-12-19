@@ -8,7 +8,7 @@ import {useEffect, useState} from "react";
 function Main(props) {
     const [x, setX] = useState("");
     const [y, setY] = useState("");
-    const [r, setR] = useState("");
+    const [r, setR] = useState("2.5");
     const {login, password} = props
     const navigate = useNavigate()
     useEffect(() => {

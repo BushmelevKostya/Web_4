@@ -10,7 +10,7 @@ function Graph( props ) {
         const canvas = canvasRef.current;
         const ctx = canvas.getContext("2d");
         if (ctx === null) return;
-        const graphPrinter = new GraphPrinter(canvas, ctx, 5);
+        const graphPrinter = new GraphPrinter(canvas, ctx, props.r);
         graphPrinter.drawPicture();
 
         fetch("http://localhost:8080/request/points",{

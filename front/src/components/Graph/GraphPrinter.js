@@ -18,7 +18,7 @@ class GraphPrinter {
         let R4 = "-2.5";
 
         const center = 250
-        const l = 32;
+        const l = 64;
         this.ctx.fillStyle = "#EEE"
 
         this.ctx.fillRect(0, 0, 500, 500);
