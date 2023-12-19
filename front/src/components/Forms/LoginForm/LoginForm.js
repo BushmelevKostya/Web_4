@@ -1,9 +1,8 @@
 import {useNavigate} from "react-router-dom";
 import {useState} from "react";
-import {useAuth} from "../../../store/AuthContext";
 
-function LoginForm() {
-    const {changeLogin, changePassword, logout} = useAuth()
+function LoginForm(props) {
+    const {setLogin, setPassword} = props
     const navigate = useNavigate();
     const [newLogin, setNewLogin] = useState("");
     const [newPassword, setNewPassword] = useState("");
@@ -25,8 +24,8 @@ function LoginForm() {
         })
             .then(response => {
                 if(response.ok){
-                    changeLogin(login)
-                    changePassword(password)
+                    setLogin(login)
+                    setPassword(password)
                     navigate("/app")
                 } else {
                     alert(response.status)
