@@ -17,7 +17,7 @@ function Main(props) {
             <Title/>
             <div>
                 {PointForm(props)}
-                {ClearButton("text", "Clear")}
+                {ClearButton("text", "Clear", props)}
             </div>
             <Graph width={500} height={500}/>
         </>

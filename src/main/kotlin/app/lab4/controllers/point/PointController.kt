@@ -22,9 +22,9 @@ class PointController {
         @RequestHeader("Authorization") authorization: String
     ): Point? {
         val login = authorizationService?.checkUser(authorization)
-        val point: Point? = null
+        var point: Point? = null
         if (login != null) {
-            val point : Point = Point(x, y, r, login)
+            point = Point(x, y, r, login)
         }
         if (point != null) {
             pointRepository?.save(point)
@@ -38,7 +38,9 @@ class PointController {
     @Transactional
     @DeleteMapping("request/points")
     fun deletePoints(@RequestHeader("Authorization") authorization: String) {
-        val login = "Root"
-        pointRepository?.deletePointsByOwner(login)
+        val login = authorizationService?.checkUser(authorization)
+        if (login != null) {
+            pointRepository?.deletePointsByOwner(login)
+        }
     }
 }
