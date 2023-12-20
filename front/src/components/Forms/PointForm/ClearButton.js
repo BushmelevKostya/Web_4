@@ -15,7 +15,8 @@ function ClearButton(props) {
     }
 
     return (
-        <button type={props.type} value={props.value} onClick={(event) => {clearPoints(event)}}>{props.value}</button>
+        <button type={props.type} value={props.value} onClick={(event) => {clearPoints(event)}}
+        className="submit-button">{props.value}</button>
     );
 }
 

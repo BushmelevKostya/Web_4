@@ -12,13 +12,13 @@ function PointForm(props) {
         formData.append('x', parseFloat(x).toFixed(3));
         formData.append('y', parseFloat(y).toFixed(3));
         formData.append('r', parseFloat(r).toFixed(3));
-        fetch("http://localhost:8080/request/points",{
+        fetch("http://localhost:8080/request/points", {
             method: 'POST',
             headers: {"Authorization": "Basic " + btoa(props.userProps.login + ":" + props.userProps.password)},
             body: formData,
         })
             .then(response => {
-                if(response.ok){
+                if (response.ok) {
                     props.setR(props.r - 0.00001);
                 } else {
                     alert(response.status);
@@ -28,10 +28,14 @@ function PointForm(props) {
 
     return (
         <Form onSubmit={event => handleSubmit(event, props.x, props.y, props.r)}>
-            <XButtons x = {props.x} setX = {props.setX}/>
-            Y:<TextInput type = "text" name = "y" placeholder = "Please enter y" y = {props.y} setY = {props.setY}/>
-            <RButtons r = {props.r} setR={props.setR}/>
-            {SubmitButton("Create point")}
+            <XButtons x={props.x} setX={props.setX}/>
+            <div className="input-text-block">
+                Y:<TextInput type="text" name="y" placeholder="Please enter y" y={props.y} setY={props.setY}/>
+            </div>
+            <RButtons r={props.r} setR={props.setR}/>
+            <div className="submit-button-block">
+                {SubmitButton("Create point")}
+            </div>
         </Form>
     );
 }

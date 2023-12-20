@@ -1,6 +1,7 @@
 function SubmitButton(value) {
     return (
-        <button type="submit" value={value} >{value}</button>
+        <button type="submit" value={value}
+        className="submit-button">{value}</button>
     );
 }
 

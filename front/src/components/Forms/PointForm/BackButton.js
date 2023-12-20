@@ -9,7 +9,8 @@ function BackButton(props) {
     }
 
     return (
-        <button type={props.type} value={props.value} onClick={() => closeSession()}>{props.value}</button>
+        <button type={props.type} value={props.value} onClick={() => closeSession()}
+        className="submit-button">{props.value}</button>
     );
 }
 

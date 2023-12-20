@@ -50,27 +50,29 @@ function LoginForm(props) {
 
     return (
         <form>
-            <div>
+            <div className="input-text-block">
                 <label htmlFor="username">Username</label>
                 <input type={"text"}
                        autoFocus={true}
                        id={"username"}
-                       onChange={event => setNewLogin(event.target.value)}/>
+                       onChange={event => setNewLogin(event.target.value)}
+                       className="input-text"/>
                 <label htmlFor="password">Password</label>
                 <input type={"password"}
                        name={"password"}
                        id={"password"}
-                       onChange={event => setNewPassword(event.target.value)}/>
+                       onChange={event => setNewPassword(event.target.value)}
+                       className="input-text"/>
             </div>
-            <div>
+            <div className="submit-button-block">
                 <button onClick={event => loginRequest(event, newLogin, newPassword)}
-                        value={newPassword}>
+                        value={newPassword}
+                        className="submit-button">
                     Login
                 </button>
-            </div>
-            <div>
                 <button onClick={event => registerRequest(event, newLogin, newPassword)}
-                        value={newPassword}>
+                        value={newPassword}
+                        className="submit-button">
                     Register
                 </button>
             </div>

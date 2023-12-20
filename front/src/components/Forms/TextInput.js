@@ -20,7 +20,8 @@ function TextInput(props) {
                 validate(event);
                 props.setY(event.target.value)
             }
-        }}></input>
+        }}
+               className="input-text"></input>
     );
 }
 

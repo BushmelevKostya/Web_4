@@ -19,18 +19,18 @@ function PointTable (props) {
             })
     }, [props.r]);
     return (
-        <table>
+        <table className="data-table">
             <thead>
             <tr>
-                <th>ID</th>
-                <th>X</th>
-                <th>Y</th>
-                <th>R</th>
-                <th>Hit</th>
-                <th>Owner</th>
+                <th className="header-x">ID</th>
+                <th className="header-x">X</th>
+                <th className="header-x">Y</th>
+                <th className="header-x">R</th>
+                <th className="header-x">Hit</th>
+                <th className="header-x">Owner</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody className="data-body">
             {points ? (
             points.map(point => (
                 <tr key={point.id}>

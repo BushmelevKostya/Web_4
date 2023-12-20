@@ -18,14 +18,20 @@ function Main(props) {
     }, [login, password]);
     return (
         <>
-            <Title/>
-            <div>
-                <PointForm x = {x} setX = {setX} y = {y} setY = {setY} r = {r} setR = {setR} userProps = {props}/>
-                <ClearButton type = "text" value = "Clear" r = {r} setR = {setR} userProps ={props}/>
-                <BackButton type = "butoon" value = "Log out" userProps = {props}/>
+            <div className="left-panel">
+                <Title/>
+                <div>
+                    <PointForm x={x} setX={setX} y={y} setY={setY} r={r} setR={setR} userProps={props}/>
+                    <div className="submit-button-block">
+                        <ClearButton type="text" value="Clear" r={r} setR={setR} userProps={props}/>
+                        <BackButton type="butoon" value="Log out" userProps={props}/>
+                    </div>
+                </div>
+                <Graph width={500} height={500} r={r} setR={setR} userProps={props}/>
             </div>
-            <Graph width = {500} height = {500} r = {r} setR ={setR} userProps ={props}/>
-            <PointTable r = {r} userProps ={props}/>
+            <div className="right-panel">
+                <PointTable r={r} userProps={props}/>
+            </div>
         </>
     );
 }
