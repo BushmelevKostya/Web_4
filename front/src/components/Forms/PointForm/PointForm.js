@@ -12,7 +12,7 @@ function PointForm(props) {
         formData.append('x', parseFloat(x).toFixed(3));
         formData.append('y', parseFloat(y).toFixed(3));
         formData.append('r', parseFloat(r).toFixed(3));
-        fetch("http://localhost:8080/request/points",{
+        fetch("http://localhost:2580/request/points",{
             method: 'POST',
             headers: {"Authorization": "Basic " + btoa(props.userProps.login + ":" + props.userProps.password)},
             body: formData,
