@@ -5,6 +5,7 @@ import ClearButton from "../components/Forms/PointForm/ClearButton";
 import {useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
 import BackButton from "../components/Forms/PointForm/BackButton";
+import PointTable from "../components/PointTable";
 
 function Main(props) {
     const [x, setX] = useState("");
@@ -24,6 +25,7 @@ function Main(props) {
                 <BackButton type = "butoon" value = "Log out" userProps = {props}/>
             </div>
             <Graph width = {500} height = {500} r = {r} setR ={setR} userProps ={props}/>
+            <PointTable r = {r} userProps ={props}/>
         </>
     );
 }
