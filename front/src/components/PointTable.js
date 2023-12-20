@@ -3,15 +3,13 @@ import {useEffect, useState} from "react";
 function PointTable (props) {
     const [points, setPoints] = useState(null);
     useEffect( () => {
-        fetch("http://localhost:8080/request/points",{
+        fetch("http://localhost:2580/request/points",{
             method: 'GET',
             headers: {"Authorization": "Basic " + btoa(props.userProps.login + ":" + props.userProps.password)},
         })
             .then(response => {
                 if (response.ok) {
                     return response.json();
-                } else {
-                    alert(response.status);
                 }
             })
             .then(data => {

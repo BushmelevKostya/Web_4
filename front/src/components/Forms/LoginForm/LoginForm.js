@@ -18,7 +18,7 @@ function LoginForm(props) {
     }
     function loginRequest(event: React.MouseEvent<HTMLButtonElement>, login: String, password: String){
         let formData = formRequest(event, login, password);
-        fetch("http://localhost:8080/security/login",{
+        fetch("http://localhost:2580/security/login",{
             method: 'POST',
             headers: {"Authorization": "Basic " + btoa(login + ":" + password)}
         })
@@ -27,23 +27,19 @@ function LoginForm(props) {
                     setLogin(login)
                     setPassword(password)
                     navigate("/app")
-                } else {
-                    alert(response.status)
                 }
             })
     }
 
     function registerRequest(event: React.MouseEvent<HTMLButtonElement>, login: String, password: String){
         let formData = formRequest(event, login, password);
-        fetch("http://localhost:8080/security/register",{
+        fetch("http://localhost:2580/security/register",{
             method: 'POST',
             body: formData
         })
             .then(response => {
                 if(response.ok){
                     alert("Your registration successful!")
-                } else {
-                    alert(response.status)
                 }
              })
     }
