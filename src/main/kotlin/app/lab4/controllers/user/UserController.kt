@@ -16,8 +16,6 @@ class UserController {
         @RequestParam("login") login: String,
         @RequestParam("password") password: String
     ) {
-        println(login)
-        println(password)
         authService?.registerUser(login, password)
     }
 

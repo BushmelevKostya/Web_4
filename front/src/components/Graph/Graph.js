@@ -13,7 +13,7 @@ function Graph( props ) {
         const graphPrinter = new GraphPrinter(canvas, ctx, props.r);
         graphPrinter.drawPicture();
 
-        fetch("http://localhost:2580/request/points",{
+        fetch("http://localhost:8080/request/points",{
             method: 'GET',
             headers: {"Authorization": "Basic " + btoa(props.userProps.login + ":" + props.userProps.password)},
         })
@@ -48,7 +48,7 @@ function Graph( props ) {
         formData.append('x', parseFloat(x).toFixed(3));
         formData.append('y', parseFloat(y).toFixed(3));
         formData.append('r', parseFloat(props.r).toFixed(3));
-        fetch("http://localhost:2580/request/points",{
+        fetch("http://localhost:8080/request/points",{
             method: 'POST',
             headers: {"Authorization": "Basic " + btoa(props.userProps.login + ":" + props.userProps.password)},
             body: formData,

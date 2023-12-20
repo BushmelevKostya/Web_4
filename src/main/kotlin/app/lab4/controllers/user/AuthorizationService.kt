@@ -27,7 +27,6 @@ class AuthorizationService(@Value("\${PEPPER}") val pepper: String) {
         val salt: String = generateSalt()
         val securityPassword = pepper + password + salt
         var appUser = AppUser(login, createHash(securityPassword), salt)
-        println(userRepository == null)
         userRepository?.save(appUser)
     }
 
