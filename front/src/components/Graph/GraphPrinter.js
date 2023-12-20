@@ -35,8 +35,8 @@ class GraphPrinter {
         this.ctx.fill();
 
         this.ctx.beginPath();
-        this.ctx.moveTo(center + this.r / 2 * l, center);
-        this.ctx.arc(center, center, this.r / 2 * l, 0, 3 * Math.PI / 2, true);
+        this.ctx.moveTo(center + this.r * l, center);
+        this.ctx.arc(center, center, this.r * l, 0, 3 * Math.PI / 2, true);
         this.ctx.lineTo(center, center);
         this.ctx.closePath();
         this.ctx.fill();
@@ -95,7 +95,7 @@ class GraphPrinter {
 
     drawPoint(x, y, r, result) {
         const R = 2.5;
-        let hit = (y >= x - r / 2 & x >= 0 & 0 >= y) || (((r / 2) * (r / 2) - x * x)) ** 0.5 >= y & x >= 0 & y >= 0 || (x >= -r & r >= y & 0 >= x & y >= 0);
+        let hit = (y >= x - r / 2 & x >= 0 & 0 >= y) || ((r * r - x * x)) ** 0.5 >= y & x >= 0 & y >= 0 || (x >= -r & r >= y & 0 >= x & y >= 0);
         if (hit) result = "Yes";
         else result = "No";
         if (result === "No") this.ctx.fillStyle = 'red';
