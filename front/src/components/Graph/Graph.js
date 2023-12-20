@@ -38,8 +38,11 @@ function Graph( props ) {
         const offsetX = event.clientX - rect.left;
         const offsetY = event.clientY - rect.top;
 
-        const x = (((offsetX - 250) / 80) * R);
-        const y = ((-(offsetY - 250) / 80) * R);
+        const x = (((offsetX - 250) / 80) * R * (2.5 / props.r));
+        const y = ((-(offsetY - 250) / 80) * R * (2.5 / props.r));
+
+        console.log(x)
+        console.log(y)
 
         let formData = new FormData();
         formData.append('x', parseFloat(x).toFixed(3));
