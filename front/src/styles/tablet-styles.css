@@ -1,0 +1,546 @@
+@import url("https://fonts.googleapis.com/css?family=Anton");
+
+@font-face {
+    font-family: distroy;
+    src: url("../public/fonts/distroy.23.ttf");
+}
+
+@font-face {
+    font-family: rurintania;
+    src: url("../public/fonts/rurintania.ttf");
+}
+
+body {
+    font-family: "Anton", "Lucida Sans", sans-serif;
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-indent: 30px;
+    background-image: url("../public/img/fon_girl.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.header{
+    text-align: center;
+    font-family: distroy, sans-serif;
+    font-size: large;
+    color: black;
+    font-style: italic;
+}
+
+.border li:nth-child(2){border-color: #8bc63e;}
+.border li:nth-child(3){border-color: #fcba30;}
+.border li:nth-child(4){border-color: #1ccfc9;}
+.border li:nth-child(5){border-color: #493224;}
+.border li:hover {border-left: 10px solid transparent;}
+.border li:nth-child(1):hover {}
+.border li:nth-child(2):hover {}
+.border li:nth-child(3):hover {}
+.border li:nth-child(4):hover {}
+.border li:nth-child(5):hover {}
+
+.header {
+    color: red;
+}
+
+p {
+    font-family: "Trebuchet MS", "Lucida Sans", sans-serif;
+    font-size: 15px;
+    padding: 7px 40px;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    text-align: left;
+    text-indent: 30px;
+}
+
+.li-tasks1 {
+    border-color: #f05d22;
+}
+
+.li-tasks1:hover {
+    border-right: 10px solid #f05d22;
+}
+
+.li-tasks2 {
+    border-color: #8bc63e;
+}
+
+.li-tasks2:hover {
+    border-right: 10px solid #8bc63e;
+}
+
+.li-tasks3 {
+    border-color: #fcba30;
+}
+
+.li-tasks3:hover {
+    border-right: 10px solid #fcba30;
+}
+
+.li-tasks4 {
+    border-color: #1ccfc9;
+}
+
+.li-tasks4:hover {
+    border-right: 10px solid #1ccfc9;
+}
+
+.li-tasks5 {
+    border-color: #493224;
+}
+
+.li-tasks5:hover {
+    border-right: 10px solid #493224;
+}
+
+.li-tasks6 {
+    border-color: #735094;
+}
+
+.li-tasks6:hover {
+    border-right: 10px solid #735094;
+}
+
+.li-tasks7 {
+    border-color: #356422;
+}
+
+.li-tasks7:hover {
+    border-right: 10px solid #356422;
+}
+
+h1 + p {
+    font-size: 150%;
+}
+
+.data-table {
+    border: 0;
+    width: 100%;
+}
+
+.img-areas {
+    text-align: center;
+    opacity: 0.65;
+    float: left;
+    margin-right: 10px;
+    padding-left: 40px;
+}
+
+.gradient-red {
+    color: transparent;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(135deg, red, orangered);
+    filter: saturate(300%);
+}
+
+.gradient-black {
+    color: transparent;
+    font-weight: bold;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(190deg, rebeccapurple, black);
+    filter: saturate(300%);
+}
+
+.content {
+    display: inline-block;
+    margin-top: 10px;
+    text-align: center;
+    vertical-align: top;
+    width: 50%;
+}
+
+.view {
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.radio-button-block {
+    display: block;
+    text-align: center;
+}
+
+.input-text-block {
+    display: block;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.input-button-block {
+    display: block;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.canvas {
+    display: inline-block;
+    border: 6px solid #ffc288;
+    height: 500px;
+    width: 500px;
+}
+
+.shedule {
+    position: relative;
+    float: left;
+}
+
+.data-table {
+    width: 100%;
+}
+
+.tasks {
+    display: block;
+}
+
+.radio-button {
+    /*cursor: pointer;*/
+    display: none;
+}
+
+.custom-radio {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    cursor: pointer;
+    background-image: url("../public/img/radio-1.png");
+    background-size: cover;
+}
+/*Псевдоклассы*/
+.custom-radio:hover {
+    background-color: #0000bb;
+}
+
+.custom-radio:active {
+    outline: 2px dotted black;
+    box-shadow: 0 0 0 1px gold;
+}
+
+.radio-button:checked + .custom-radio {
+    background-image: url("../public/img/radio-2.png");
+    background-size: cover;
+}
+/*Селектор потомков*/
+.radio-button-block label {
+    cursor: pointer;
+    padding-left: 25px;
+    user-select: none;
+}
+
+.input-text {
+    opacity: 0.8;
+    border: 3px solid #0f0;
+    border-radius: 5px;
+    height: 20px;
+    width: 200px;
+    background-color: #1ccfc9;
+    font-family: distroy, sans-serif;
+    font-size: 15px;
+    color: black;
+    text-align: center;
+}
+
+.input-text:hover {
+    background-color: #088b85;
+}
+
+.input-text:focus {
+    outline:  2px dotted black;
+    box-shadow: 0 0 0 4px gold;
+}
+
+.text-label {
+    text-align: center;
+}
+
+.input-button {
+    cursor: pointer;
+    font-family: distroy, sans-serif;
+    font-size: large;
+    background-color: #1ccfc9;
+    margin-left: 10px;
+}
+
+.input-button:hover {
+    background-color: #088b85;
+}
+
+.input-button:focus {
+    outline:  2px dotted black;
+    box-shadow: 0 0 0 1px gold;
+}
+
+.input-button:active {
+    background-color: #333;
+    border-color: #fff;
+    color: #eee;
+}
+
+.submit-button {
+    display: inline-flex;
+    background-image: linear-gradient(to bottom, #a3d4ff, #88bcf2);
+    border-radius:3px;
+    line-height: 22px;
+    padding:7px 12px;
+    margin:0;
+    border: 1px solid #88bcf2;
+    color: gold;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    text-shadow: 0 1px 1px #70A7E0;
+    cursor:pointer;
+}
+
+.submit-button:hover {
+    background-image: linear-gradient(to bottom, #6090bb, #4478b0);
+}
+
+.submit-button:focus {
+    outline:  2px dotted black;
+    box-shadow: 0 0 0 3px gold;
+}
+
+.submit-button:active {
+    background-image: linear-gradient(to bottom, #000, #333);
+    border-color: #fff;
+    color: #eee;
+}
+
+.data-body {
+    font-family: Anton, "Trebuchet MS", "Lucida Sans", sans-serif;
+    font-size: 18px;
+    color: black;
+}
+
+.header-x {
+    color: #4242a2;
+    text-align: right;
+    padding-right: 6px;
+}
+
+.green-response {
+    color: green;
+}
+
+.red-response {
+    color: red;
+}
+
+.id-color {
+    color: #ddd;
+}
+
+a {
+    text-decoration: none;
+    color: #18272F;
+    font-weight: 700;
+    position: relative;
+}
+
+a::before {
+    content: '';
+    background-color: hsla(196, 61%, 58%, .75);
+    position: absolute;
+    left: 0;
+    bottom: 3px;
+    width: 100%;
+    height: 8px;
+    z-index: -1;
+    transition: all .3s ease-in-out;
+}
+
+a:hover::before {
+    bottom: 0;
+    height: 100%;
+}
+
+.error-type {
+    display: inline-block;
+    color: red;
+    border: 4px dotted red;
+    float: left;
+}
+
+.error-message {
+    display: inline-block;
+    color: red;
+    border: 4px dotted red;
+}
+
+.time-block {
+    display: inline-block;
+}
+
+.clock-box {
+    display: inline-block;
+    border: solid 0 olive;
+    float: left;
+}
+
+.date-box, .link-to-main{
+    height: 150px;
+    width: 300px;
+    margin-left: 20px;
+    display: inline-block;
+    font-size: 24px;
+    text-align: center;
+}
+
+.link-to-main {
+    display: block;
+}
+.date-box div {
+    width: auto;
+    color: transparent;
+    font-weight: bold;
+    -webkit-background-clip: text;
+    background-image: repeating-radial-gradient(circle closest-corner at 100px 100px, #553c9a, #b393d3 10%, #553c9a 20%);;
+    filter: saturate(300%);
+}
+
+.clock {
+    margin-top: 20px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /*text-align: center;*/
+    transform: rotateX(-90deg);
+    transform-style: preserve-3d;
+}
+
+.numbers {
+    height: 250px;
+    width: 50px;
+    padding: 0;
+    /*position: relative;*/
+    /*margin: auto;*/
+    list-style-type: none;
+    transform-style: preserve-3d;
+    transform: rotateY(90deg);
+    transition: all ease 0.5s;
+    display: inline-block;
+    user-select: none;
+}
+.numbers li {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 50%;
+    width: 0;
+    transform-style: preserve-3d;
+    transform-origin: bottom;
+    box-sizing: border-box;
+}
+.numbers li span {
+    height: 50px;
+    width: 50px;
+    display: inline-block;
+    border-radius: 2px;
+    text-align: center;
+    font-size: 5rem;
+    line-height: 50px;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transform: translateX(-50%) translateY(-40px) rotateX(90deg) rotate(90deg);
+}
+
+.numbers li:nth-child(1) {
+    transform: rotate(0deg);
+}
+.numbers li:nth-child(2) {
+    transform: rotate(-36deg);
+}
+.numbers li:nth-child(3) {
+    transform: rotate(-72deg);
+}
+.numbers li:nth-child(4) {
+    transform: rotate(-108deg);
+}
+.numbers li:nth-child(5) {
+    transform: rotate(-144deg);
+}
+.numbers li:nth-child(6) {
+    transform: rotate(-180deg);
+}
+.numbers li:nth-child(7) {
+    transform: rotate(-216deg);
+}
+.numbers li:nth-child(8) {
+    transform: rotate(-252deg);
+}
+.numbers li:nth-child(9) {
+    transform: rotate(-288deg);
+}
+.numbers li:nth-child(10) {
+    transform: rotate(-324deg);
+}
+
+.numbers.hours li span {
+    color: #088b85;
+}
+
+.numbers.minutes li span {
+    color: goldenrod;
+}
+
+.numbers.seconds li span {
+    color: slateblue;
+}
+
+.select-menu {
+    background: #18272F;
+    color: #88bcf2;
+    font-family: sans-serif;
+    font-size: 1rem;
+    padding: 2px 5px;
+}
+
+.left-panel {
+    width: 40%;
+    display: block;
+    float: left;
+}
+
+.right-panel {
+    width: 40%;
+    display: block;
+    text-align: left;
+}
+
+.x-select {
+    width: 20%;
+    display:inline-flex;
+    /*float: left;*/
+}
+.y-select {
+    width: 30%;
+    display:inline-flex;
+    /*float: left;*/
+}
+.r-select {
+    width: auto;
+    display:inline-flex;
+}
+
+td {
+    text-align: right;
+}
+.buttons {
+    text-align: center;
+}
+.submit-button-block, .link-button-block {
+    display: block;
+    text-align: center;
+}
+
+.r-link {
+    margin-left: 2px;
+    display: inline-block;
+}

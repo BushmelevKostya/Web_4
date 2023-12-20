@@ -237,7 +237,7 @@ h1 + p {
   height: 20px;
   width: 200px;
   background-color: #1ccfc9;
-  font-family: distroy, sans-serif;
+  font-family: Anton, distroy, sans-serif;
   font-size: 15px;
   color: black;
   text-align: center;
@@ -317,7 +317,7 @@ h1 + p {
 }
 
 .header-x {
-color: #4242a2;
+color: #0000bb;
   text-align: right;
   padding-right: 6px;
 }
